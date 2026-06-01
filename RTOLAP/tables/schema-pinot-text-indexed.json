@@ -1,0 +1,21 @@
+{
+  "schemaName": "pinot_text_indexed",
+  "dimensionFieldSpecs": [
+    {"name": "status", "dataType": "STRING"},
+    {"name": "eventType", "dataType": "STRING"},
+    {"name": "loglevel", "dataType": "STRING"},
+    {"name": "content1", "dataType": "STRING"},
+    {"name": "content2", "dataType": "STRING"},
+    {"name": "content3", "dataType": "STRING"},
+    {"name": "content4", "dataType": "STRING"},
+    {"name": "content5", "dataType": "STRING"}
+  ],
+  "dateTimeFieldSpecs": [
+    {
+      "name": "timestamp",
+      "dataType": "LONG",
+      "format": "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MILLISECONDS"
+    }
+  ]
+}

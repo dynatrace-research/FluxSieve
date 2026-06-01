@@ -1,0 +1,87 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pinot-client-job
+spec:
+  template:
+    metadata:
+      labels:
+        app: pinot-client
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: pinot-client
+        image: ADD-yours
+        imagePullPolicy: Always
+        env:
+        - name: PINOT_BROKER_IP
+          value: "pinot-broker.default.svc.cluster.local:8099"
+        - name: PINOT_QUERIES
+          value: '[
+            {"comment": "Q1-pinot-streaming", "query": "select * from streaming2 where matchedRule_1 = true"},
+            {"comment": "Q1-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content1, ''melborpmelborp'')"},
+            {"comment": "Q1-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content1, ''melborpmelborp'')"},
+            {"comment": "Q2-pinot-streaming", "query": "select * from streaming2 where matchedRule_201 = true limit 100000"},
+            {"comment": "Q2-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q2-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q3-pinot-streaming", "query": "select COUNT(*) from streaming2 where matchedRule_401 = true"},
+            {"comment": "Q3-pinot-text_indexed", "query": "select COUNT(*) from pinot_text_indexed WHERE TEXT_MATCH(content3, ''Error_999'')"},
+            {"comment": "Q3-pinot", "query": "select COUNT(*) from pinot_text_indexed WHERE REGEXP_LIKE(content3, ''Error_999'')"},
+            {"comment": "Q4-pinot-streaming", "query": "select * from streaming2 where matchedRule_799 = true AND matchedRule_999 = true"},
+            {"comment": "Q4-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content4, ''problem_id'') AND TEXT_MATCH(content5, ''123456789'')"},
+            {"comment": "Q4-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content4, ''problem_id'') AND REGEXP_LIKE(content5, ''123456789'')"},
+            {"comment": "Q1a-pinot-streaming", "query": "select * from streaming2 where matchedRule_1 = true"},
+            {"comment": "Q1a-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content1, ''melborpmelborp'')"},
+            {"comment": "Q1a-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content1, ''melborpmelborp'')"},
+            {"comment": "Q2a-pinot-streaming", "query": "select * from streaming2 where matchedRule_201 = true limit 100000"},
+            {"comment": "Q2a-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q2a-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q3a-pinot-streaming", "query": "select COUNT(*) from streaming2 where matchedRule_401 = true"},
+            {"comment": "Q3a-pinot-text_indexed", "query": "select COUNT(*) from pinot_text_indexed WHERE TEXT_MATCH(content3, ''Error_999'')"},
+            {"comment": "Q3a-pinot", "query": "select COUNT(*) from pinot_text_indexed WHERE REGEXP_LIKE(content3, ''Error_999'')"},
+            {"comment": "Q4a-pinot-streaming", "query": "select * from streaming2 where matchedRule_799 = true AND matchedRule_999 = true"},
+            {"comment": "Q4a-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content4, ''problem_id'') AND TEXT_MATCH(content5, ''123456789'')"},
+            {"comment": "Q4a-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content4, ''problem_id'') AND REGEXP_LIKE(content5, ''123456789'')"},
+            {"comment": "Q1b-pinot-streaming", "query": "select * from streaming2 where matchedRule_1 = true"},
+            {"comment": "Q1b-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content1, ''melborpmelborp'')"},
+            {"comment": "Q1b-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content1, ''melborpmelborp'')"},
+            {"comment": "Q2b-pinot-streaming", "query": "select * from streaming2 where matchedRule_201 = true limit 100000"},
+            {"comment": "Q2b-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q2b-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q3b-pinot-streaming", "query": "select COUNT(*) from streaming2 where matchedRule_401 = true"},
+            {"comment": "Q3b-pinot-text_indexed", "query": "select COUNT(*) from pinot_text_indexed WHERE TEXT_MATCH(content3, ''Error_999'')"},
+            {"comment": "Q3b-pinot", "query": "select COUNT(*) from pinot_text_indexed WHERE REGEXP_LIKE(content3, ''Error_999'')"},
+            {"comment": "Q4b-pinot-streaming", "query": "select * from streaming2 where matchedRule_799 = true AND matchedRule_999 = true"},
+            {"comment": "Q4b-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content4, ''problem_id'') AND TEXT_MATCH(content5, ''123456789'')"},
+            {"comment": "Q4b-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content4, ''problem_id'') AND REGEXP_LIKE(content5, ''123456789'')"},
+            {"comment": "Q1c-pinot-streaming", "query": "select * from streaming2 where matchedRule_1 = true"},
+            {"comment": "Q1c-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content1, ''melborpmelborp'')"},
+            {"comment": "Q1c-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content1, ''melborpmelborp'')"},
+            {"comment": "Q2c-pinot-streaming", "query": "select * from streaming2 where matchedRule_201 = true limit 100000"},
+            {"comment": "Q2c-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q2c-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q3c-pinot-streaming", "query": "select COUNT(*) from streaming2 where matchedRule_401 = true"},
+            {"comment": "Q3c-pinot-text_indexed", "query": "select COUNT(*) from pinot_text_indexed WHERE TEXT_MATCH(content3, ''Error_999'')"},
+            {"comment": "Q3c-pinot", "query": "select COUNT(*) from pinot_text_indexed WHERE REGEXP_LIKE(content3, ''Error_999'')"},
+            {"comment": "Q4c-pinot-streaming", "query": "select * from streaming2 where matchedRule_799 = true AND matchedRule_999 = true"},
+            {"comment": "Q4c-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content4, ''problem_id'') AND TEXT_MATCH(content5, ''123456789'')"},
+            {"comment": "Q4c-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content4, ''problem_id'') AND REGEXP_LIKE(content5, ''123456789'')"},
+            {"comment": "Q1d-pinot-streaming", "query": "select * from streaming2 where matchedRule_1 = true"},
+            {"comment": "Q1d-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content1, ''melborpmelborp'')"},
+            {"comment": "Q1d-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content1, ''melborpmelborp'')"},
+            {"comment": "Q2d-pinot-streaming", "query": "select * from streaming2 where matchedRule_201 = true limit 100000"},
+            {"comment": "Q2d-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q2d-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content2, ''problem_id'') limit 100000"},
+            {"comment": "Q3d-pinot-streaming", "query": "select COUNT(*) from streaming2 where matchedRule_401 = true"},
+            {"comment": "Q3d-pinot-text_indexed", "query": "select COUNT(*) from pinot_text_indexed WHERE TEXT_MATCH(content3, ''Error_999'')"},
+            {"comment": "Q3d-pinot", "query": "select COUNT(*) from pinot_text_indexed WHERE REGEXP_LIKE(content3, ''Error_999'')"},
+            {"comment": "Q4d-pinot-streaming", "query": "select * from streaming2 where matchedRule_799 = true AND matchedRule_999 = true"},
+            {"comment": "Q4d-pinot-text_indexed", "query": "select * from pinot_text_indexed WHERE TEXT_MATCH(content4, ''problem_id'') AND TEXT_MATCH(content5, ''123456789'')"},
+            {"comment": "Q4d-pinot", "query": "select * from pinot_text_indexed WHERE REGEXP_LIKE(content4, ''problem_id'') AND REGEXP_LIKE(content5, ''123456789'')"}
+          ]'
+        - name: S3_BUCKET_NAME
+          value: "YOUR_S3_BUCKET_NAME"
+        - name: S3_KEY_PREFIX
+          value: "${S3_KEY_PREFIX}"
+        - name: CSV_FILENAME
+          value: "${CSV_FILENAME}"

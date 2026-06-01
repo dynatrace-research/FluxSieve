@@ -1,0 +1,58 @@
+{
+  "tableName": "streaming2",
+  "tableType": "REALTIME",
+  "segmentsConfig": {
+    "timeColumnName": "timestamp",
+    "schemaName": "streaming2",
+    "replicasPerPartition": "1"
+  },
+  "tenants": {},
+  "tableIndexConfig": {
+    "loadMode": "MMAP",
+    "streamConfigs": {
+      "streamType": "kafka",
+      "stream.kafka.consumer.type": "lowlevel",
+      "stream.kafka.topic.name": "YOUR_TOPIC",
+      "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+      "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+      "stream.kafka.broker.list": "YOUR_BKOKER:9092",
+      "realtime.segment.flush.threshold.rows": "0",
+      "realtime.segment.flush.threshold.time": "24h",
+      "realtime.segment.flush.threshold.segment.size": "50M",
+      "stream.kafka.consumer.prop.auto.offset.reset": "smallest"
+    },
+    "noDictionaryColumns": [
+     "content1",
+     "content2",
+     "content3",
+     "content4",
+     "content5"
+   ]
+  },
+  "fieldConfigList":[
+    {
+      "name":"content1",
+      "encodingType":"RAW",
+      "indexTypes":["TEXT"]
+    },{
+      "name":"content2",
+      "encodingType":"RAW",
+      "indexTypes":["TEXT"]
+    },{
+      "name":"content3",
+      "encodingType":"RAW",
+      "indexTypes":["TEXT"]
+    },{
+      "name":"content4",
+      "encodingType":"RAW",
+      "indexTypes":["TEXT"]
+    },{
+      "name":"content5",
+      "encodingType":"RAW",
+      "indexTypes":["TEXT"]
+    }
+  ],
+  "metadata": {
+    "customConfigs": {}
+  }
+}

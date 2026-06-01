@@ -1,0 +1,7 @@
+concurrency_level,system,file_layout,num_successful_queries,num_errors,median_latency_ms,p99_latency_ms,tail_factor_p99_over_median,qps,total_elapsed_seconds,avg_cpu_percent
+8,BASELINE,~1k-files_x_10k-records,80,0,21035.202199,72589.943885,3.450879,0.124097,644.6546,99.5816
+8,FLUXSIEVE,~1k-files_x_10k-records,3795,0,972.42634,9970.457525,10.253175,6.260495,606.1821,98.937
+16,BASELINE,~1k-files_x_10k-records,112,0,46346.505482,148975.198439,3.214378,0.135303,827.77,99.612
+16,FLUXSIEVE,~1k-files_x_10k-records,3655,0,2019.104698,20115.450174,9.962559,6.015777,607.5691,99.4324
+32,BASELINE,~1k-files_x_10k-records,204,0,88203.150825,285143.112634,3.2328,0.123026,1658.187,99.8339
+32,FLUXSIEVE,~1k-files_x_10k-records,3314,0,4323.196443,37826.978051,8.749771,5.412982,612.2318,99.4465

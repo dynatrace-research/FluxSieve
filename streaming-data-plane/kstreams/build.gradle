@@ -1,0 +1,174 @@
+plugins {
+    id("java")
+    id("application")
+    id("com.google.cloud.tools.jib") version ("3.3.1")
+    id "me.champeau.jmh" version "0.6.8"
+}
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+application {
+    mainClass.set(findProperty('mainClass') ?: 'com.dynatrace.research.matcherUpdater.KafkaStreamsMatchToParquetDirect')
+}
+
+apply from: "$rootDir/repositories.gradle" // import s3 repository
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+    withJavadocJar()
+    withSourcesJar()
+}
+
+group = "com.dynatrace"
+//version = "1.0-SNAPSHOT"
+version = "dynamic-matcher"
+dependencies {
+    implementation "org.apache.kafka:kafka-streams:3.7.0" , {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'org.apache.logging.log4j', module: 'log4j'
+    }
+    testImplementation "org.apache.kafka:kafka-streams-test-utils:3.7.0" , {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'org.apache.logging.log4j', module: 'log4j'
+    }
+    implementation 'org.apache.kafka:kafka-clients:3.7.0'
+    // Logging
+    implementation 'org.apache.logging.log4j:log4j-api:2.23.1' // downgrade - otherwise JMH benchmarks crash because of logger
+    implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.13'
+
+    implementation("io.smallrye.config:smallrye-config:3.7.1")
+    implementation "com.dynatrace.hash4j:hash4j:0.17.0"
+    implementation("com.google.guava:guava:33.1.0-jre")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+    testImplementation("org.assertj:assertj-core:3.25.0")
+    implementation("org.assertj:assertj-core:3.25.0")
+
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.780'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation(platform("software.amazon.awssdk:bom:2.27.21"))
+    implementation 'software.amazon.awssdk:s3:2.20.40'
+    implementation 'com.gliwka.hyperscan:hyperscan:5.4.11-3.1.0'
+    implementation 'io.micrometer:micrometer-core:1.12.3'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.12.3'
+
+    implementation 'software.amazon.awssdk:sts'
+    implementation 'software.amazon.awssdk:eks'
+
+    testImplementation group: 'org.testcontainers', name: 'kafka', version: '1.20.0' , {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'org.apache.logging.log4j', module: 'log4j'
+    }
+    testImplementation group: 'org.testcontainers', name: 'localstack', version: '1.20.0'
+    testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: '1.20.0'
+
+
+    jmh 'org.apache.logging.log4j:log4j-api:2.23.1' // downgrade - otherwise JMH benchmarks crash because of logger
+    jmh 'org.apache.logging.log4j:log4j-core:2.23.1'
+    jmh 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+    // this solves the missing /META-INF/BenchmarkList error
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
+
+    // Jackson for JSON processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.3'
+
+    // Parquet
+    implementation 'org.apache.parquet:parquet-avro:1.13.1'
+    implementation 'org.apache.parquet:parquet-hadoop:1.13.1'
+    implementation 'org.apache.parquet:parquet-common:1.13.1'
+    implementation 'org.apache.parquet:parquet-column:1.13.1'
+    implementation 'org.apache.parquet:parquet-encoding:1.13.1'
+
+    // Avro
+    implementation 'org.apache.avro:avro:1.11.3'
+
+    // Hadoop (required for Parquet)
+    implementation('org.apache.hadoop:hadoop-common:3.3.6') {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+        exclude group: 'ch.qos.reload4j', module: 'reload4j'
+        exclude group: 'log4j', module: 'log4j'
+    }
+    implementation('org.apache.hadoop:hadoop-mapreduce-client-core:3.3.6') {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+        exclude group: 'ch.qos.reload4j', module: 'reload4j'
+        exclude group: 'log4j', module: 'log4j'
+    }
+
+    // Compression codecs
+    implementation 'org.xerial.snappy:snappy-java:1.1.10.5'
+    implementation 'org.lz4:lz4-java:1.8.0'
+    implementation 'com.github.luben:zstd-jni:1.5.5-11'
+
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testImplementation 'org.apache.kafka:kafka-streams-test-utils:3.6.0'
+
+}
+
+jmhJar {
+    zip64 true
+    archiveFileName.set('benchmarks.jar')
+    // Needed so log4j works within the shaded jmh jar
+    exclude "**/Log4j2Plugins.dat"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    // Propagate integration-test runtime properties passed via -D (for example it.kafka.* and it.s3.*)
+    systemProperties(System.getProperties().findAll { key, value -> key.toString().startsWith('it.') })
+}
+
+jib {
+    to {
+        image = [[imageRepository, project.name].join('/'), imageTag].join(':')
+
+        if (project.hasProperty('imageCredHelper')) {
+            credHelper = imageCredHelper
+        }
+        if (project.hasProperty('imageUsername') && project.hasProperty('imagePassword')) {
+            auth {
+                username = imageUsername
+                password = imagePassword
+            }
+        }
+    }
+    container.mainClass = application.getMainClass().get()
+    extraDirectories {
+        paths {
+            path {
+                from = file('src/test/resources/')
+                into = '/kstreams/src/test/resources/' // Destination path inside the container
+            }
+        }
+    }
+}
+
+project.ext.jmhProfilers = project.hasProperty('jmhProfilers') ? project.getProperty('jmhProfilers').tokenize('|') :
+        ['async:libPath=/usr/local/lib/libasyncProfiler.so;output=flamegraph;dir=build/results/jmh;event=cpu;verbose=false']
+project.ext.jmhResultFormat = project.hasProperty('jmhResultFormat') ? project.getProperty('jmhResultFormat') : 'CSV'
+project.ext.jvmArgsPrepend = project.hasProperty('jvmArgsPrepend') ? project.getProperty('jvmArgsPrepend') : ''
+project.ext.jvmArgsAppend = project.hasProperty('jvmArgsAppend') ? project.getProperty('jvmArgsAppend') : ''
+
+jmh {
+    // Specifies JMH version
+    jmhVersion = '1.35'
+    // Result format type
+    resultFormat = project.ext["jmhResultFormat"]
+    // Strategy to apply when encountering duplicate classes during creation of the fat jar
+    duplicateClassesStrategy = DuplicatesStrategy.EXCLUDE
+    // Custom JVM args to use when forking
+    jvmArgsPrepend = [project.ext["jvmArgsPrepend"]]
+    jvmArgsAppend = [project.ext["jvmArgsAppend"]]
+    // Use profilers to collect additional data
+    profilers = project.ext["jmhProfilers"]
+}

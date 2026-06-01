@@ -1,0 +1,37 @@
+# Python virtual environments
+**/.venv/
+**/venv/
+**/env/
+
+# Python cache and tooling
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+
+# Gradle and Java build outputs
+streaming-data-plane/.gradle/
+streaming-data-plane/build/
+streaming-data-plane/kstreams/.gradle/
+streaming-data-plane/kstreams/build/
+
+# IDE project files
+**/.idea/
+*.iml
+
+# Notebook and coverage artifacts
+**/.ipynb_checkpoints/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# OS and editor temp files
+.DS_Store
+Thumbs.db
+*.swp
+*~

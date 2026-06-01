@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  message-generator:
+    image: load-generator_message-generator:latest
+    build:
+      context: .
+      network: host
+    # Kafka runs on the host node, so use host networking for direct localhost access.
+    network_mode: host
+    environment:
+      KAFKA_TOPIC: test
+      KAFKA_BROKER: localhost:9092
+      MESSAGES_PER_SECOND: "100" # 1000 for realistic load, 100 for testing
+      DURATION_SECONDS: "10" # 1000 for realistic load, 10 for testing
+      SPECIAL_FREQUENCY1: "1000000000"
+      MATCHEABLE1: "melborpmelborp"
+      SPECIAL_FREQUENCY2: "500000"
+      MATCHEABLE2: "problem_id"
+      SPECIAL_FREQUENCY3: "9999"
+      MATCHEABLE3: "Error_999"
+      SPECIAL_FREQUENCY4: "19999"
+      SPECIAL_FREQUENCY5: "500001"
+      MATCHEABLE5: "123456789"
+      STRINGSIZE: "60"
+      DEBUG_SAMPLE_RATE: "100000"
+      DEBUG_MODE: "false"
+    deploy:
+      replicas: 10
+      restart_policy:
+        condition: on-failure
+    # Avoid pulling from localhost registry; use the locally built image.
+    pull_policy: never
+

@@ -1,0 +1,56 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-generator
+spec:
+  completions: 4
+  parallelism: 4 
+  template: 
+    metadata:
+      labels:
+        app: load-generator
+    spec:
+      nodeSelector:
+        type: manager
+      restartPolicy: Never
+      containers:
+        - name: load-generator
+          image: YOUR_IMAGE
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: KAFKA_BROKER
+              value: "YOUR_BRO:9092"
+            - name: KAFKA_TOPIC
+              value: "YOUR_TOPIC"
+            - name: MESSAGES_PER_SECOND
+              value: "10000" 
+            - name: DURATION_SECONDS
+              value: "4000" 
+            - name: SPECIAL_FREQUENCY1
+              value: "1000000000" 
+            - name: MATCHEABLE1
+              value: "melborpmelborp"
+            - name: SPECIAL_FREQUENCY2
+              value: "500000" 
+            - name: MATCHEABLE2
+              value: "problem_id"
+            - name: SPECIAL_FREQUENCY3
+              value: "9999" 
+            - name: MATCHEABLE3
+              value: "Error_999"
+            - name: SPECIAL_FREQUENCY4
+              value: "19999" 
+            - name: MATCHEABLE4
+              value: "problem_id"
+            - name: SPECIAL_FREQUENCY5
+              value: "500001" 
+            - name: MATCHEABLE5
+              value: "123456789"
+            - name: STRINGSIZE
+              value: "60"
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"

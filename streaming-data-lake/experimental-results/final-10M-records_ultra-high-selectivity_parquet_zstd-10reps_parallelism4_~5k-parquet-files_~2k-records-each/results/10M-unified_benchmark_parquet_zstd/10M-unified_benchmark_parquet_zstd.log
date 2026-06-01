@@ -1,0 +1,691 @@
+======================================================================
+DuckDB Unified Benchmark: Baseline vs Array-Based
+======================================================================
+Scenario: 10M-unified_benchmark_parquet_zstd
+Threads: 4, Memory: 16GB, Clear cache: True
+Cold iterations: 10, Hot iterations: 10
+COPY format: parquet, Compression: zstd
+Started: 2026-01-30T11:53:05.163670
+Log: results/10M-unified_benchmark_parquet_zstd/10M-unified_benchmark_parquet_zstd.log
+Results: results/10M-unified_benchmark_parquet_zstd
+======================================================================
+
+[1/4] Checking input files...
+  Baseline: 4913 files, 5.07 GB
+  Array: 4886 files, 5.07 GB
+
+[2/4] Running Baseline LIKE benchmarks...
+
+BASELINE-LIKE: 4913 files, 5.07 GB
+Pattern: '/data/kstreams/parquet_direct_baseline/parquet/sink/*.parquet'
+
+[COLD] Running 10 iterations - BASELINE-LIKE
+======================================================================
+
+--- Cold Iteration 1/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 4213.30 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3083.57 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6780.83 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 7149.87 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5995.17 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6351.72 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6937.84 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6803.58 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 2/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3230.55 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3039.58 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6750.33 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6833.56 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5968.30 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6274.87 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6975.25 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6833.66 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 3/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3198.03 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3020.32 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6764.74 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6883.77 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5914.97 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6246.71 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6863.73 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6794.81 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 4/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3195.83 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3039.15 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6715.09 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6886.13 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5893.82 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6288.47 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6840.01 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6790.71 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 5/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3200.97 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3018.31 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6753.54 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6810.34 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5906.82 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6219.87 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6868.72 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6838.86 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 6/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3199.86 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3040.57 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6748.12 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6852.97 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5916.86 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6275.05 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6896.37 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6825.18 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 7/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3201.52 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3040.93 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6725.50 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6877.27 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5917.11 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6268.36 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6856.12 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6808.55 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 8/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3172.50 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3036.64 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6740.94 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 7061.94 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5931.68 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6230.53 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6880.49 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6804.92 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 9/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3224.59 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3023.94 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6773.61 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6875.85 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5955.43 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6247.38 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6872.11 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6786.76 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 10/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3202.65 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-baseline-like: 3069.38 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-baseline-like: 6744.70 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-baseline-like: 6888.70 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-baseline-like: 5910.96 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-baseline-like: 6240.54 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-baseline-like: 6866.90 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-baseline-like: 6824.13 ms [Success] rows_copied=0 size=0.00 MB
+
+[HOT] Running 10 iterations - BASELINE-LIKE
+======================================================================
+Warming up cache...
+✓ Warm-up complete
+
+  Iteration 1/10
+  COUNT Q1-baseline-like: 2254.38 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2286.37 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5681.62 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5876.92 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4887.30 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5294.42 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5843.38 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5859.94 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 2/10
+  COUNT Q1-baseline-like: 2261.98 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2282.36 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5699.30 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5946.83 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4895.31 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5292.08 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5844.15 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5880.75 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 3/10
+  COUNT Q1-baseline-like: 2275.56 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2304.69 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5709.49 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5941.30 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4912.28 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5293.46 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5863.05 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5885.11 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 4/10
+  COUNT Q1-baseline-like: 2221.76 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2322.30 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5729.18 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5936.33 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4976.77 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5391.43 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5823.51 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5902.17 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 5/10
+  COUNT Q1-baseline-like: 2242.19 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2319.84 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5729.60 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5986.67 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4911.61 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5337.04 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5869.42 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5850.01 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 6/10
+  COUNT Q1-baseline-like: 2240.72 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2256.81 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5724.32 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5870.08 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4891.92 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5269.16 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5831.56 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5850.36 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 7/10
+  COUNT Q1-baseline-like: 2276.31 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2266.10 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5699.00 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5913.12 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4955.62 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5263.85 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5875.74 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5846.18 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 8/10
+  COUNT Q1-baseline-like: 2270.72 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2289.21 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5736.00 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5923.35 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4947.78 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5333.09 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5860.27 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5846.24 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 9/10
+  COUNT Q1-baseline-like: 2268.04 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2285.62 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5711.67 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5906.32 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4950.84 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5267.98 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5840.24 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5879.41 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 10/10
+  COUNT Q1-baseline-like: 2281.76 ms [Success] rows=0
+  COPY  Q1-baseline-like: 2379.37 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-baseline-like: 5721.54 ms [Success] rows=520
+  COPY  Q2-baseline-like: 5937.69 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-baseline-like: 4941.09 ms [Success] rows=1000
+  COPY  Q3-baseline-like: 5249.88 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-baseline-like: 5838.21 ms [Success] rows=0
+  COPY  Q4-baseline-like: 5910.60 ms [Success] rows_copied=0 size=0.00 MB
+
+[3/4] Running Array-based benchmarks...
+
+ARRAY: 4886 files, 5.07 GB
+Pattern: '/data/kstreams/parquet_direct_mine/parquet/sink/*.parquet'
+
+[COLD] Running 10 iterations - ARRAY
+======================================================================
+
+--- Cold Iteration 1/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 760.55 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 626.80 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 613.56 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 1062.31 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 667.28 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1361.55 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 660.57 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 694.72 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 2/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 607.74 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 565.44 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 638.20 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 964.88 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 627.01 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1254.53 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 673.09 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 658.65 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 3/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 649.69 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 609.12 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 602.17 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 957.41 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 615.63 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1267.80 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 689.68 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 633.98 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 4/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 658.97 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 600.72 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 634.42 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 970.69 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 629.84 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1292.17 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 674.39 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 633.08 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 5/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 647.98 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 606.79 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 634.92 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 971.83 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 624.04 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1244.99 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 723.36 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 641.80 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 6/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 646.27 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 589.11 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 604.04 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 957.36 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 622.54 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1256.11 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 686.39 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 652.19 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 7/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 633.56 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 642.29 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 646.64 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 932.28 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 633.68 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1277.80 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 680.12 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 671.11 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 8/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 619.49 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 567.03 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 618.22 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 956.80 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 607.30 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1260.75 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 651.75 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 627.70 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 9/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 654.82 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 617.66 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 593.68 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 966.86 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 663.98 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1273.09 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 650.63 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 616.38 ms [Success] rows_copied=0 size=0.00 MB
+
+--- Cold Iteration 10/10 ---
+✓ System cache cleared
+  COUNT Q1-array-single-rule: 636.83 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q1-array-single-rule: 566.10 ms [Success] rows_copied=0 size=0.00 MB
+✓ System cache cleared
+  COUNT Q2-array-single-rule: 623.63 ms [Success] rows=520
+✓ System cache cleared
+  COPY  Q2-array-single-rule: 947.85 ms [Success] rows_copied=520 size=0.28 MB
+✓ System cache cleared
+  COUNT Q3-array-single-rule: 659.46 ms [Success] rows=1000
+✓ System cache cleared
+  COPY  Q3-array-single-rule: 1272.13 ms [Success] rows_copied=1000 size=0.52 MB
+✓ System cache cleared
+  COUNT Q4-array-two-rules-AND: 680.15 ms [Success] rows=0
+✓ System cache cleared
+  COPY  Q4-array-two-rules-AND: 650.74 ms [Success] rows_copied=0 size=0.00 MB
+
+[HOT] Running 10 iterations - ARRAY
+======================================================================
+Warming up cache...
+✓ Warm-up complete
+
+  Iteration 1/10
+  COUNT Q1-array-single-rule: 411.21 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 501.61 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 362.28 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 871.45 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 405.40 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1108.61 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 428.64 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 595.85 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 2/10
+  COUNT Q1-array-single-rule: 420.90 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 507.93 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 366.84 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 789.15 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 412.28 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1023.87 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 464.29 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 583.87 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 3/10
+  COUNT Q1-array-single-rule: 407.08 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 509.96 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 435.68 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 789.96 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 406.36 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1021.12 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 506.59 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 571.21 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 4/10
+  COUNT Q1-array-single-rule: 409.82 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 544.88 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 412.62 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 778.30 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 390.29 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1012.79 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 405.10 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 595.26 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 5/10
+  COUNT Q1-array-single-rule: 427.78 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 509.42 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 402.89 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 759.11 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 367.92 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1019.81 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 423.71 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 575.99 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 6/10
+  COUNT Q1-array-single-rule: 388.72 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 510.77 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 405.14 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 802.88 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 405.46 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 983.69 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 462.94 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 581.37 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 7/10
+  COUNT Q1-array-single-rule: 458.62 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 532.85 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 425.92 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 807.13 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 405.65 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1026.46 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 418.10 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 598.68 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 8/10
+  COUNT Q1-array-single-rule: 376.49 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 488.15 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 441.53 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 769.24 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 421.36 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 988.90 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 446.40 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 561.69 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 9/10
+  COUNT Q1-array-single-rule: 404.80 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 516.12 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 418.06 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 804.35 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 380.75 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1040.15 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 442.96 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 566.91 ms [Success] rows_copied=0 size=0.00 MB
+  Iteration 10/10
+  COUNT Q1-array-single-rule: 388.53 ms [Success] rows=0
+  COPY  Q1-array-single-rule: 512.11 ms [Success] rows_copied=0 size=0.00 MB
+  COUNT Q2-array-single-rule: 416.62 ms [Success] rows=520
+  COPY  Q2-array-single-rule: 780.01 ms [Success] rows_copied=520 size=0.28 MB
+  COUNT Q3-array-single-rule: 409.31 ms [Success] rows=1000
+  COPY  Q3-array-single-rule: 1021.10 ms [Success] rows_copied=1000 size=0.52 MB
+  COUNT Q4-array-two-rules-AND: 451.65 ms [Success] rows=0
+  COPY  Q4-array-two-rules-AND: 581.06 ms [Success] rows_copied=0 size=0.00 MB
+
+[4/4] Saving results...
+======================================================================
+  Cold metrics: 160 rows
+  Hot metrics:  160 rows
+Saved: results/10M-unified_benchmark_parquet_zstd/cold_metrics_unified.csv
+Saved: results/10M-unified_benchmark_parquet_zstd/hot_metrics_unified.csv
+
+======================================================================
+SUMMARY STATISTICS
+======================================================================
+
+--- Cold COUNT (ms) ---
+                                          mean     std      min      max  count
+Approach Comment                                                               
+ARRAY    Q1-array-single-rule-COUNT     651.59   41.47   607.74   760.55     10
+         Q2-array-single-rule-COUNT     620.95   17.59   593.68   646.64     10
+         Q3-array-single-rule-COUNT     635.08   21.06   607.30   667.28     10
+         Q4-array-two-rules-AND-COUNT   677.01   21.19   650.63   723.36     10
+BASELINE Q1-baseline-like-COUNT        3303.98  319.89  3172.50  4213.30     10
+         Q2-baseline-like-COUNT        6749.74   20.19  6715.09  6780.83     10
+         Q3-baseline-like-COUNT        5931.11   31.84  5893.82  5995.17     10
+         Q4-baseline-like-COUNT        6885.75   41.03  6840.01  6975.25     10
+
+--- Cold COPY (ms) ---
+                                         mean     std      min      max  count
+Approach Comment                                                              
+ARRAY    Q1-array-single-rule-COPY     599.11   26.85   565.44   642.29     10
+         Q2-array-single-rule-COPY     968.83   34.89   932.28  1062.31     10
+         Q3-array-single-rule-COPY    1276.09   32.87  1244.99  1361.55     10
+         Q4-array-two-rules-AND-COPY   648.03   22.91   616.38   694.72     10
+BASELINE Q1-baseline-like-COPY        3041.24   20.75  3018.31  3083.57     10
+         Q2-baseline-like-COPY        6912.04  107.27  6810.34  7149.87     10
+         Q3-baseline-like-COPY        6264.35   37.63  6219.87  6351.72     10
+         Q4-baseline-like-COPY        6811.11   18.33  6786.76  6838.86     10
+
+--- Hot COUNT (ms) ---
+                                          mean    std      min      max  count
+Approach Comment                                                              
+ARRAY    Q1-array-single-rule-COUNT     409.40  23.26   376.49   458.62     10
+         Q2-array-single-rule-COUNT     408.76  26.29   362.28   441.53     10
+         Q3-array-single-rule-COUNT     400.48  16.05   367.92   421.36     10
+         Q4-array-two-rules-AND-COUNT   445.04  29.01   405.10   506.59     10
+BASELINE Q1-baseline-like-COUNT        2259.34  19.27  2221.76  2281.76     10
+         Q2-baseline-like-COUNT        5714.17  17.12  5681.62  5736.00     10
+         Q3-baseline-like-COUNT        4927.05  31.20  4887.30  4976.77     10
+         Q4-baseline-like-COUNT        5848.95  17.19  5823.51  5875.74     10
+
+--- Hot COPY (ms) ---
+                                         mean    std      min      max  count
+Approach Comment                                                             
+ARRAY    Q1-array-single-rule-COPY     513.38  15.70   488.15   544.88     10
+         Q2-array-single-rule-COPY     795.16  31.01   759.11   871.45     10
+         Q3-array-single-rule-COPY    1024.65  34.06   983.69  1108.61     10
+         Q4-array-two-rules-AND-COPY   581.19  12.64   561.69   598.68     10
+BASELINE Q1-baseline-like-COPY        2299.27  35.03  2256.81  2379.37     10
+         Q2-baseline-like-COPY        5923.86  34.39  5870.08  5986.67     10
+         Q3-baseline-like-COPY        5299.24  43.14  5249.88  5391.43     10
+         Q4-baseline-like-COPY        5871.08  23.86  5846.18  5910.60     10
+
+--- Data Consistency Check ---
+  COLD: ✓ All queries consistent
+  HOT: ✓ All queries consistent
+
+--- Approach Comparison (Hot Average) ---
+
+Average COUNT time (ms) by approach:
+Approach
+ARRAY        415.92
+BASELINE    4687.38
+
+Average COPY time (ms) by approach:
+Approach
+ARRAY        728.59
+BASELINE    4848.36
+
+======================================================================
+Benchmark completed successfully!
+Finished: 2026-01-30T12:11:29.550681
+======================================================================
+======================================================================
+DuckDB Unified Benchmark: Baseline vs Array-Based
+======================================================================
+Scenario: 10M-unified_benchmark_parquet_zstd
+Threads: 4, Memory: 16GB, Clear cache: True
+Cold iterations: 10, Hot iterations: 10
+COPY format: parquet, Compression: zstd
+Started: 2026-01-30T13:30:25.134513
+Log: results/10M-unified_benchmark_parquet_zstd/10M-unified_benchmark_parquet_zstd.log
+Results: results/10M-unified_benchmark_parquet_zstd
+======================================================================
+
+[1/4] Checking input files...
+  Baseline: 963 files, 5.06 GB
+  Array: 962 files, 5.06 GB
+
+[2/4] Running Baseline LIKE benchmarks...
+
+BASELINE-LIKE: 963 files, 5.06 GB
+Pattern: '/data/kstreams/parquet_direct_baseline/parquet/sink/*.parquet'
+
+[COLD] Running 10 iterations - BASELINE-LIKE
+======================================================================
+
+--- Cold Iteration 1/10 ---
+✓ System cache cleared
+  COUNT Q1-baseline-like: 3307.91 ms [Success] rows=0
+✓ System cache cleared
