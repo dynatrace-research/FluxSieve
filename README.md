@@ -1,6 +1,6 @@
 # FluxSieve Replication Package
 
-This repository is the replication package for the paper `FluxSieve: Unifying Streaming and Analytical Data Planes for Scalable Cloud Observability`.
+This repository is the replication package for the paper `FluxSieve: Unifying Streaming Enrichment and Analytical Querying in Observability Systems`.
 
 It contains:
 - implementation artifacts for the FluxSieve data-plane mechanisms,
